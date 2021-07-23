@@ -10,8 +10,6 @@ Metadata:
         'y': 71
       z: 0
       embeds:
-        - ad872228-517c-45c1-89fb-0b796819a40c
-        - d0d3abac-dd9d-4adb-ade5-5b083974b99f
         - 24b279f5-f0db-4e15-bb31-a43c3387fbe3
     5796dad8-035c-4f81-9757-8d41bcf3baf0:
       size:
@@ -43,26 +41,11 @@ Metadata:
         - 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
         - 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
         - 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
-    d0d3abac-dd9d-4adb-ade5-5b083974b99f:
-      size:
-        width: 60
-        height: 60
-      position:
-        x: 176
-        'y': 143
-      z: 1
-      parent: 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
-      embeds: []
-    ad872228-517c-45c1-89fb-0b796819a40c:
-      size:
-        width: 60
-        height: 60
-      position:
-        x: 340
-        'y': 140
-      z: 1
-      parent: 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
-      embeds: []
+        - 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
+        - 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
+        - 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
+        - 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
+        - 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
 Resources:
   VPC:
     Type: 'AWS::EC2::VPC'
@@ -91,15 +74,9 @@ Resources:
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 24b279f5-f0db-4e15-bb31-a43c3387fbe3
-  AZ1NatGateway:
-    Type: 'AWS::EC2::NatGateway'
-    Properties: {}
-    Metadata:
-      'AWS::CloudFormation::Designer':
-        id: d0d3abac-dd9d-4adb-ade5-5b083974b99f
-  AZ2NATGateway:
-    Type: 'AWS::EC2::NatGateway'
-    Properties: {}
-    Metadata:
-      'AWS::CloudFormation::Designer':
-        id: ad872228-517c-45c1-89fb-0b796819a40c
+Parameters:
+  CidrBlock:
+    Description: CIDR Block for VPC
+    Type: String
+    Default: None
+    ConstraintDescription: must be in the format of 0.0.0.0/0.
