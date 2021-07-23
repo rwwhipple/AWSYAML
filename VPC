@@ -1,0 +1,105 @@
+AWSTemplateFormatVersion: 2010-09-09
+Metadata:
+  'AWS::CloudFormation::Designer':
+    96a8e5f8-a642-4aa5-8ef8-483ea6092b57:
+      size:
+        width: 400
+        height: 220
+      position:
+        x: 155
+        'y': 71
+      z: 0
+      embeds:
+        - ad872228-517c-45c1-89fb-0b796819a40c
+        - d0d3abac-dd9d-4adb-ade5-5b083974b99f
+        - 24b279f5-f0db-4e15-bb31-a43c3387fbe3
+    5796dad8-035c-4f81-9757-8d41bcf3baf0:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 30
+        'y': 55
+      z: 0
+      embeds: []
+    cb6111b1-18ad-4bbb-b3b4-7c1638f549bd:
+      source:
+        id: 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
+      target:
+        id: 5796dad8-035c-4f81-9757-8d41bcf3baf0
+      z: 0
+    24b279f5-f0db-4e15-bb31-a43c3387fbe3:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 250
+        'y': 80
+      z: 1
+      parent: 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
+      embeds: []
+      iscontainedinside:
+        - 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
+        - 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
+        - 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
+        - 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
+    d0d3abac-dd9d-4adb-ade5-5b083974b99f:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 176
+        'y': 143
+      z: 1
+      parent: 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
+      embeds: []
+    ad872228-517c-45c1-89fb-0b796819a40c:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 340
+        'y': 140
+      z: 1
+      parent: 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
+      embeds: []
+Resources:
+  VPC:
+    Type: 'AWS::EC2::VPC'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 96a8e5f8-a642-4aa5-8ef8-483ea6092b57
+  InternetGateway:
+    Type: 'AWS::EC2::InternetGateway'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 5796dad8-035c-4f81-9757-8d41bcf3baf0
+  EC2VPCGDJJ0:
+    Type: 'AWS::EC2::VPCGatewayAttachment'
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref InternetGateway
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: cb6111b1-18ad-4bbb-b3b4-7c1638f549bd
+  VPCCidrBlock:
+    Type: 'AWS::EC2::VPCCidrBlock'
+    Properties:
+      VpcId: !Ref VPC
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 24b279f5-f0db-4e15-bb31-a43c3387fbe3
+  AZ1NatGateway:
+    Type: 'AWS::EC2::NatGateway'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: d0d3abac-dd9d-4adb-ade5-5b083974b99f
+  AZ2NATGateway:
+    Type: 'AWS::EC2::NatGateway'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: ad872228-517c-45c1-89fb-0b796819a40c
