@@ -203,6 +203,43 @@ Resources:
       GroupDescription: "Security group with no ingress rule"
       VpcId: !Ref VPC
 
+  myCustomerGateway:
+    Type: AWS::EC2::CustomerGateway
+    Properties: 
+      Type: ipsec.1
+      BgpAsn:  65000
+      IpAddress: 34.226.231.217
+      Tags: 
+      - Key: Use
+        Value: Test 
+         
+  myVPNGateway:
+    Type: AWS::EC2::VPNGateway
+    Properties: 
+      Type: ipsec.1
+      Tags: 
+      - Key: Use
+        Value: Test  
+
+  AttachVpnGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId:
+       Ref: VPC
+      VpnGatewayId:
+       Ref: myVPNGateway        
+
+  GITVPNConnection:
+    Type: AWS::EC2::VPNConnection
+    Properties: 
+      Type: ipsec.1
+      StaticRoutesOnly: true
+      CustomerGatewayId: 
+        !Ref myCustomerGateway
+      VpnGatewayId: 
+        !Ref myVPNGateway
+
+ 
 Outputs:
   VPC:
     Description: A reference to the created VPC
